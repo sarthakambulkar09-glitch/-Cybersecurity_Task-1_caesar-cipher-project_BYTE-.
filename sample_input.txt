@@ -1,1 +1,4 @@
+Plaintext: Hello World
+Shift: 3
 
+Expected Ciphertext: Khoor Zruog
