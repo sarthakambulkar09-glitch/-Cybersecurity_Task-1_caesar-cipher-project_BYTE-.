@@ -16,7 +16,7 @@ def decrypt(text, shift):
 
 
 def brute_force(ciphertext):
-    print("\nBrute Force Results:\n")
+    print("\n=== Auto-Cracker ===")
 
     for shift in range(1, 26):
         candidate = decrypt(ciphertext, shift)
@@ -25,20 +25,30 @@ def brute_force(ciphertext):
 
 def main():
     print("=== Caesar Cipher Tool ===")
+    print("1. Encrypt")
+    print("2. Decrypt")
+    print("3. Auto-Crack")
 
-    text = input("Enter text: ")
-    shift = int(input("Enter shift value: "))
+    choice = input("\nChoose option (1/2/3): ")
 
-    encrypted = encrypt(text, shift)
-    decrypted = decrypt(encrypted, shift)
+    if choice == "1":
+        text = input("Enter plaintext: ")
+        shift = int(input("Enter shift value: "))
 
-    print("\nEncrypted:", encrypted)
-    print("Decrypted:", decrypted)
+        print("\nCiphertext:", encrypt(text, shift))
 
-    choice = input("\nRun brute-force auto-cracker? (y/n): ")
+    elif choice == "2":
+        text = input("Enter ciphertext: ")
+        shift = int(input("Enter shift value: "))
 
-    if choice.lower() == "y":
-        brute_force(encrypted)
+        print("\nPlaintext:", decrypt(text, shift))
+
+    elif choice == "3":
+        text = input("Enter ciphertext: ")
+        brute_force(text)
+
+    else:
+        print("Invalid choice.")
 
 
 if __name__ == "__main__":
